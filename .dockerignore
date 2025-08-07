@@ -1,0 +1,30 @@
+# Dependências locais
+node_modules
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+
+# Build output
+.next
+out
+build
+
+# Ambiente e configs locais
+.env*
+!.env.example
+.vscode
+.idea
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Prisma client gerado (vai ser gerado no build dentro do container)
+src/generated/prisma
+
+# Docker volumes locais
+finance_pgdata

@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    container_name: finance_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: myfinance
+    ports:
+      - "5433:5432"
+    volumes:
+      - finance_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: finance_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5051:80"
+    depends_on:
+      - db
+
+volumes:
+  finance_pgdata:
